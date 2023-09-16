@@ -57,4 +57,14 @@ def load_resources(path: str):
         resources[r.get_name()] = r
         print("Added '{}'".format(r.get_name()))
     
+    # Convert requirements into links to objects from strings
+    for r in resources.keys():
+        reqs = []
+
+        for req in resources[r].data['requires']:
+            reqs.append[resources[req]]
+        
+        r.data['requires'] = reqs
+            
+    
     return resources
