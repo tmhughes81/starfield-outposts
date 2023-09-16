@@ -1,24 +1,16 @@
 import json
 
 class Resource:
-    def __init__(self):
+    def __init__(self, name="None", reqs=[]):
         self.data = {}
-        self.data["name"] = "None"
-        self.data["requires"] = []
+        self.data["name"] = name
+        self.data["requires"] = reqs
     
     def set_name(self, name: str):
         self.data["name"] = name
         
     def get_name(self):
         return self.data["name"]
-    
-    def create(self, name:str, reqs=[]):
-        self.set_name(name)
-        
-        for r in reqs:
-            self.add_req(r)
-        
-        return self
     
     def add_requirement(self, req: str):
         self.data["requires"].append(req)
