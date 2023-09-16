@@ -27,6 +27,9 @@ class Resource:
     def rem_req(self, req):
         self.remove_requireqment(req)
     
+    def get_reqs(self):
+        return self.data["requires"]
+    
     def show(self):
         print("Name: {}".format(self.data["name"]))
         if len(self.data["requires"]) > 0:

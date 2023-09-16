@@ -11,6 +11,7 @@ Class Outpost:
         result = ""
         result += "Outpost Name: {}\n".format(self.name)
         
+        # Currently available resources
         avails = ""
         for r in self.resources():
             avails += "{}, ".format(r.get_name())
@@ -20,6 +21,17 @@ Class Outpost:
         
         if len(avails) > 3:
             result += "Available Resources: {}".format(avails[:-3])
+        
+        # Unmet resource needs
+        needs = self.unmet_needs()
+        
+        if len(needs) > 0:
+            unmet_needs = ""
+            
+            for n in needs:
+                unmet_needs += "{}, ".format(n.get_name())
+            
+            result += "Unmet Resource Needs: {}".format(unmet_needs[:-3])
         
         return result
     
@@ -44,6 +56,16 @@ Class Outpost:
         link = Link(destination, self, resource)
         self.imports.append(link)
         destination.add_export(link)
+    
+    def unmet_needs(self):
+        needed = []
+        
+        for r in self.resources():
+            for need in r.get_reqs():
+                if need not in self.resources():
+                    needed.append(need)
+        
+        return needed
         
         
 Class Link:
