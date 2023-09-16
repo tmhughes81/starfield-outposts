@@ -18,5 +18,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/tmhughes81/starfield-outposts"
-"Bug Tracker" = "https://github.com/tmhughes81/starfield-outposts/issues"
+"Homepage" = "https://github.com/tmhughes81/starfield_outposts"
+"Bug Tracker" = "https://github.com/tmhughes81/starfield_outposts/issues"
